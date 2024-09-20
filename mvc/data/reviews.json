@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "name": "Andi",
+    "rating": 4,
+    "comment": "film ini bagus banget",
+    "movie": {
+      "id": 1,
+      "name": "Oppenheimer",
+      "year": 2023
+    }
+  },
+  {
+    "id": 2,
+    "name": "Rian",
+    "rating": 5,
+    "comment": "film ini ceritanya out of the box",
+    "movie": {
+      "id": 1,
+      "name": "Oppenheimer",
+      "year": 2023
+    }
+  },
+  {
+    "id": 3,
+    "name": "Hana",
+    "rating": 5,
+    "comment": "aku nonton ini sudah 5 kali. Gila sih ceritanya bagus banget",
+    "movie": {
+      "id": 5,
+      "name": "Avengers: End Game",
+      "year": 2019
+    }
+  },
+  {
+    "id": 4,
+    "name": "Azka",
+    "rating": 5,
+    "comment": "banyak pembelajaran dari film ini",
+    "movie": {
+      "id": 2,
+      "name": "Joker",
+      "year": 2019
+    }
+  },
+  {
+    "id": 5,
+    "name": "David",
+    "rating": 4,
+    "comment": "Bagus banget",
+    "movie": {
+      "id": 1,
+      "name": "Oppenheimer",
+      "year": 2023
+    }
+  },
+  {
+    "id": 6,
+    "name": "David",
+    "rating": 4,
+    "comment": "Bagus banget",
+    "movie": {
+      "id": 1,
+      "name": "Oppenheimer",
+      "year": 2023
+    }
+  },
+  {
+    "id": 7,
+    "name": "David",
+    "rating": 1,
+    "comment": "Bagus banget",
+    "movie": {}
+  }
+]
