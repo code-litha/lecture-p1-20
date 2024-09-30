@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Ayam Goreng",
+    "price": 25000,
+    "CategoryId": 1
+  },
+  {
+    "id": 2,
+    "name": "Ayam Bakar",
+    "price": 25000,
+    "CategoryId": 1
+  },
+  {
+    "id": 3,
+    "name": "Beef Burger",
+    "price": 25000,
+    "CategoryId": 2
+  },
+  {
+    "id": 4,
+    "name": "Cheese Burger",
+    "price": 30000,
+    "CategoryId": 2
+  },
+  {
+    "id": 5,
+    "name": "Mie Ramen",
+    "price": 50000,
+    "CategoryId": 3
+  }
+]

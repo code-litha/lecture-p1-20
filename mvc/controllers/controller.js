@@ -51,7 +51,3 @@ class Controller {
 }
 
 module.exports = Controller
-
-// function sum (a, b) {
-//   console.log(a + b)
-// }

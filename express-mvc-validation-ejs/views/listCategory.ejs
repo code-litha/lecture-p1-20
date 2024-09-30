@@ -1,0 +1,28 @@
+<%- include('./partials/header.ejs', { titleName: 'List Categories' }) %>
+
+<body>
+  <%- include('./partials/navbar.ejs') %>
+
+  <center>
+    <h1>List Categories</h1>
+  
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <% data.forEach(el => { %>
+          <tr>
+            <td> <%= el.id %> </td>
+            <td> <%= el.name %> </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </center>
+</body>
+</html>

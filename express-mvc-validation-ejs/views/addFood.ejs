@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Food</title>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  
+  <h1>Create Food</h1>
+
+  <% if (errors.length) { %>
+    <% errors.forEach(el => { %>
+      <p style="color: red;"> <%= el %> </p>
+    <% }) %>
+  <% } %>
+
+  <form action="/foods/add" method="post">
+    <div>
+      <label>Name</label>
+      <input type="text" name="name" />
+    </div>
+
+    <div>
+      <label>Price</label>
+      <input type="number" name="price" />
+    </div>
+    
+    <div>
+      <label>Category</label>
+      <select name="CategoryId">
+        <option selected disabled> --- Select Category --- </option>
+        
+        <% dataCategories.forEach(el => { %>
+          <option value="<%= el.id %>" >
+            <%= el.name %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <button type="submit">Create</button>
+  </form>
+</body>
+</html>

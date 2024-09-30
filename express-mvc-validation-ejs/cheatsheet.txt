@@ -1,0 +1,7 @@
+npm init -y
+npm install pg express ejs
+npm i -D nodemon
+
+touch .gitignore
+
+mkdir config migrations seeders models controllers views
