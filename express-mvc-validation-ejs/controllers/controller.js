@@ -27,17 +27,20 @@ class Controller {
 
   static async getAddFoodForm (req, res) {
     try {
-      // console.log(req.query, '<<< request query')
-      let errors = req.query.errors || ''
-      if (errors) {
-        errors = errors.split(',')
+      console.log(req.query, '<<< request query')
+      let errorMessages = ''
+
+      if (req.query.errorValidation) {
+        errorMessages = req.query.errorValidation
       }
 
-      console.log(errors)
+      // console.log(errorMessages)
+      errorMessages = errorMessages.split(',')  // jadinya array of string
+      
       const dataCategories = await Model.getAllCategories()
 
       // res.send('GET /foods/add')
-      res.render('addFood.ejs', { dataCategories, errors })
+      res.render('addFood.ejs', { dataCategories, errors: errorMessages })
     } catch (error) {
       res.send(error.message || 'Internal Server Error')
     }
@@ -52,16 +55,24 @@ class Controller {
       // res.send('POST /foods/add')
       res.redirect('/foods')
     } catch (error) {
-      // console.log(error, '<<< error di controller')
       if (error.name === 'ErrorValidation') {
-        // console.log(error.errMessages, '<<< messages')
-        const errMessages = error.errMessages
-
-        // kasih request query in path => ?key1=value1&key2=value2
-        res.redirect(`/foods/add?errors=${errMessages}`)  // method GET /foods/add
+        const keyQuery = 'errorValidation'
+        const valueQuery = error.errMessages
+        res.redirect(`/foods/add?${keyQuery}=${valueQuery}`)
       } else {
-        res.send(error || 'Internal Server Error')
+        res.send(error)
       }
+      // console.log(error, '<<< error di controller')
+      // // console.log(error, '<<< error di controller')
+      // if (error.name === 'ErrorValidation') {
+      //   // console.log(error.errMessages, '<<< messages')
+      //   const errMessages = error.errMessages
+
+      //   // kasih request query in path => ?key1=value1&key2=value2
+      //   res.redirect(`/foods/add?errors=${errMessages}`)  // method GET /foods/add
+      // } else {
+      //   res.send(error || 'Internal Server Error')
+      // }
     }
   }
 

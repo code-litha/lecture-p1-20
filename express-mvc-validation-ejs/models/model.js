@@ -62,11 +62,31 @@ class Model {
 
   static async createFood (name, price, CategoryId) {
     try {
-      // validations
-      const errors = this.errorValidation(name, price, CategoryId)
-      if (errors.length > 0) {
-        throw { name: `ErrorValidation`, errMessages: errors }
+      const errMessages = []
+
+      // nama gak boleh kosong
+      if (!name) {
+        errMessages.push('nama gak boleh kosong')
       }
+
+      // price gak boleh kosong
+      if (!price) {
+        errMessages.push('price gak boleh kosong')
+      }
+
+      // kalau errMessagesnya gak kosong, maka throw error
+      if (errMessages.length > 0) {
+        throw {
+          name: 'ErrorValidation',  // identitas error yang membedakan dirinya dengan error yang lain
+          errMessages
+        }
+      }
+
+      // // validations
+      // const errors = this.errorValidation(name, price, CategoryId)
+      // if (errors.length > 0) {
+      //   throw { name: `ErrorValidation`, errMessages: errors }
+      // }
 
       // const data = await pool.query(`
       //   INSERT INTO "Foods" ("name", "price", "CategoryId")

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List User</title>
+</head>
+<body>
+  <center>
+    <h1>List User</h1>
+
+    <div>
+      <a href="/add"><button>Add Book</button></a>
+    </div>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Count Books</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% dataUsers.forEach(el => { %>
+          <tr>
+            <td><%= el.id %></td>
+            <td><%= el.username %></td>
+            <td><%= el.password %></td>
+            <td><%= el.Books.length %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </center>
+</body>
+</html>

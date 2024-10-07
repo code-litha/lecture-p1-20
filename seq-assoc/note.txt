@@ -1,0 +1,32 @@
+npm init -y
+npm install express ejs pg sequelize
+npm install -D sequelize-cli nodemon
+touch .gitignore
+
+npx sequelize-cli init
+
+// ubah config/config.json
+npx sequelize-cli db:create
+
+// buat model User
+npx sequelize-cli model:create --name User --attributes username:string,password:string
+
+// buat model Profile
+npx sequelize-cli model:create --name Profile --attributes fullName:string,gender:string,UserId:integer
+
+// buat model Book tanpa AuthorId
+npx sequelize-cli model:create --name Book --attributes name:string,price:integer,synopsis:text
+
+// tambah AuthorId ke Book
+npx sequelize-cli migration:create --name add_column_AuthorId_to_Books
+
+// jalankan migration
+npx sequelize-cli db:migrate
+
+// buat seed file
+npx sequelize-cli seed:create --name seedUserProfile
+npx sequelize-cli seed:create --name seedBook
+
+npx sequelize-cli db:seed:all
+
+npx sequelize-cli db:seed --seed 20241004031346-seedBook
