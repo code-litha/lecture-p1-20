@@ -8,6 +8,12 @@
 <body>
   <h1>Add User</h1>
 
+  <% if (errors.length) { %>
+    <% errors.forEach(el => { %>
+      <p style="color: red" ><%= el %></p>
+    <% }) %>
+  <% } %>
+
   <form action="/add" method="post">
     <div>
       <label>Username</label>

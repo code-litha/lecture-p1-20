@@ -21,8 +21,47 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    username: DataTypes.STRING,
-    password: DataTypes.STRING
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: {
+        msg: `Username sudah ada yang punya`
+      },
+      validate: {
+        notNull: {
+          msg: `Username is not null`
+        },    // "notNull: true / { msg: ... }" hanya boleh digunakan jika "allowNull: false"
+        notEmpty: {
+          msg: `Username is required`
+        },
+        gaBolehAdaSpasi(value) {
+          if (value.split(' ').length > 1) {
+            throw new Error('Username gak boleh ada spasi')
+          }
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: {
+          msg: `Password is required`
+        },
+        // len: [5]  // minimal 5 character
+        len: {
+          args: [5],
+          msg: `Password minimal 5 character`
+        },
+        isContainUsername (value) {
+          const username = this.username
+          if (value.includes(username)) {
+            throw new Error('Password gak boleh mengandung username')
+          }
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'User',
@@ -46,7 +85,7 @@ module.exports = (sequelize, DataTypes) => {
   User.beforeCreate(function (user, options) {
     console.log('Hooks di before create method 3 jalan')
 
-    user.username = user.username + `@hacktiv8.com`
+    // user.username = user.username + `@hacktiv8.com`
 
     const encryptPass = btoa(user.password)
     user.password = encryptPass

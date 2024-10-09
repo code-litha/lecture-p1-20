@@ -1,0 +1,21 @@
+{
+  "name": "p1_bsd14_many_to_many",
+  "version": "1.0.0",
+  "description": "- [Many to Many](https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "sequelize-cli": "^6.6.2"
+  }
+}
